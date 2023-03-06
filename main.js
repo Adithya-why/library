@@ -1,4 +1,5 @@
 let myLibrary = [];
+const bks = document.querySelector(".bks");
 
 function Book(n,a,nop,rd){
     this.name = n,
@@ -23,8 +24,39 @@ function addToBooks(){
     myLibrary.push(book);
 }
 
+const b1 = new Book("Tom sawyer","Mark twain",100,true);
+const b2 = new Book("Tom sawyer","Mark twain",100,true);
+const b3 = new Book("Tom sawyer","Mark twain",100,true);
+const b4 = new Book("Tom sawyer","Mark twain",100,true);
 
-addToBooks();
-for(let i=0;i<=myLibrary.length;i++){
-    document.write(myLibrary[i].info())
+myLibrary.push(b1);
+myLibrary.push(b2);
+myLibrary.push(b3);
+myLibrary.push(b4);
+
+
+
+for(let i=0;i<myLibrary.length;i++){
+    const div = document.createElement("div");
+    div.classList.add(`bkno`);
+    div.classList.add(`${i}`);
+    const inDivName = document.createElement("div");
+    inDivName.innerHTML = myLibrary[i].name;
+
+    const inDivAuth = document.createElement("div");
+    inDivAuth.innerHTML = myLibrary[i].author;
+
+    const inDivNop = document.createElement("div");
+    inDivNop.innerHTML = myLibrary[i].noOfPages;
+
+    const inDivRd = document.createElement("div");
+    inDivRd.innerHTML = myLibrary[i].haveRead;
+
+    div.appendChild(inDivName);
+    div.appendChild(inDivAuth);
+    div.appendChild(inDivNop);
+    div.appendChild(inDivRd);
+
+
+    bks.appendChild(div);
 }
