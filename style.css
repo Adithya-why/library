@@ -89,3 +89,31 @@ html,body{
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+
+
+.addbks{
+    display: flex;
+    flex-direction: column;
+    background-color: #AD7BE9;
+    color: white;
+}
+
+
+.twwr,.fwr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.fwr2{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   row-gap: 1rem;
+}
+
+
+input[type="checkbox"]{
+    justify-self: start;
+}
