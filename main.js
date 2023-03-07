@@ -30,6 +30,8 @@ for(let i=0;i<myLibrary.length;i++){
     const div = document.createElement("div");
     div.classList.add(`bkno`);
     div.classList.add(`${i}`);
+    div.dataset.no=i;
+
     const inDivName = document.createElement("div");
     inDivName.innerHTML = myLibrary[i].name;
 
@@ -43,17 +45,23 @@ for(let i=0;i<myLibrary.length;i++){
     const inDivRd = document.createElement("div");
     inDivRd.innerHTML = myLibrary[i].haveRead;
 
+    const btnr = document.createElement("button");
+    btnr.innerHTML = "Remove book";
+    btnr.classList.add("btnr");
+    btnr.classList.add(`${i}`);
+
     div.appendChild(inDivName);
     div.appendChild(inDivAuth);
     div.appendChild(inDivNop);
     div.appendChild(inDivRd);
+    div.appendChild(btnr);
 
 
     bks.appendChild(div);
 }
 
 
-const btn = document.querySelector('button');
+const btn = document.querySelector('button#su');
 btn.addEventListener('click',(e)=>{
     const bname = document.querySelector("#bname").value;
     const bauth = document.querySelector("#bauth").value;
@@ -65,6 +73,8 @@ btn.addEventListener('click',(e)=>{
     const div = document.createElement("div");
     div.classList.add(`bkno`);
     div.classList.add(`${myLibrary.length-1}`);
+    div.dataset.no=myLibrary.length-1;
+
     const inDivName = document.createElement("div");
     inDivName.innerHTML = myLibrary[myLibrary.length-1].name;
 
@@ -77,16 +87,41 @@ btn.addEventListener('click',(e)=>{
     const inDivRd = document.createElement("div");
     inDivRd.innerHTML = myLibrary[myLibrary.length-1].haveRead;
 
+
+    const btnr = document.createElement("button");
+    btnr.innerHTML = "Remove book";
+    btnr.classList.add("btnr");
+    btnr.classList.add(`${myLibrary.length-1}`);
+
+    btnr.addEventListener('click',(e)=>{
+        let i = (e.target.classList)[1];
+        let clr = document.querySelector(`[data-no="${i}"]`);
+        clr.remove();
+    })
+
     div.appendChild(inDivName);
     div.appendChild(inDivAuth);
     div.appendChild(inDivNop);
     div.appendChild(inDivRd);
-
+    div.appendChild(btnr);
 
     bks.appendChild(div);
 
+
+    
+
 });
 
+
+
+const btnr = document.querySelectorAll(".btnr");
+btnr.forEach((btn)=>{
+    btn.addEventListener('click',(e)=>{
+        let i = (e.target.classList)[1];
+        let clr = document.querySelector(`[data-no="${i}"]`);
+        clr.remove();
+    })
+});
 
 
 
