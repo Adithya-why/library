@@ -117,3 +117,8 @@ html,body{
 input[type="checkbox"]{
     justify-self: start;
 }
+
+
+.read{
+    background-color: red;
+}

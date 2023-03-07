@@ -50,12 +50,24 @@ for(let i=0;i<myLibrary.length;i++){
     btnr.classList.add("btnr");
     btnr.classList.add(`${i}`);
 
+
+    const btnrd = document.createElement("button");
+    btnrd.innerHTML = "Read status";
+    btnrd.classList.add("btnrd");
+    btnrd.classList.add(`${i}`)
+
+
+    btnrd.addEventListener('click',(e)=>{
+        e.target.classList.toggle('read');
+    })
+    
+
     div.appendChild(inDivName);
     div.appendChild(inDivAuth);
     div.appendChild(inDivNop);
     div.appendChild(inDivRd);
     div.appendChild(btnr);
-
+    div.appendChild(btnrd);
 
     bks.appendChild(div);
 }
@@ -99,12 +111,26 @@ btn.addEventListener('click',(e)=>{
         clr.remove();
     })
 
+
+
+    const btnrd = document.createElement("button");
+    btnrd.innerHTML = "Read status";
+    btnrd.classList.add("btnrd");
+    btnrd.classList.add(`${myLibrary.length-1}`);
+
+
+
+    btnrd.addEventListener('click',(e)=>{
+        e.target.classList.toggle('read');
+    })
+
+
     div.appendChild(inDivName);
     div.appendChild(inDivAuth);
     div.appendChild(inDivNop);
     div.appendChild(inDivRd);
     div.appendChild(btnr);
-
+    div.appendChild(btnrd);
     bks.appendChild(div);
 
 
