@@ -120,5 +120,9 @@ input[type="checkbox"]{
 
 
 .read{
+    background-color: green;
+}
+
+.unread{
     background-color: red;
 }

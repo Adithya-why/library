@@ -43,6 +43,7 @@ for(let i=0;i<myLibrary.length;i++){
     inDivNop.innerHTML = myLibrary[i].noOfPages;
 
     const inDivRd = document.createElement("div");
+    inDivRd.classList.add('rdtext')
     inDivRd.innerHTML = myLibrary[i].haveRead;
 
     const btnr = document.createElement("button");
@@ -54,13 +55,24 @@ for(let i=0;i<myLibrary.length;i++){
     const btnrd = document.createElement("button");
     btnrd.innerHTML = "Read status";
     btnrd.classList.add("btnrd");
-    btnrd.classList.add(`${i}`)
+    btnrd.classList.add(`${i}`);
+    
 
+    if(myLibrary[i].haveRead === true){
+        btnrd.classList.add('read');
+       
+    }
+
+    else{
+        btnrd.classList.add('unread');
+    }
 
     btnrd.addEventListener('click',(e)=>{
         e.target.classList.toggle('read');
+        e.target.classList.toggle('unread');
+        document.querySelector('.rdtext').innerHTML = myLibrary[i].haveRead;
     })
-    
+
 
     div.appendChild(inDivName);
     div.appendChild(inDivAuth);
@@ -79,6 +91,7 @@ btn.addEventListener('click',(e)=>{
     const bauth = document.querySelector("#bauth").value;
     const bnop = document.querySelector("#bnop").value;
     const brd = document.querySelector("#brd").checked;
+    
 
     const b = new Book(bname,bauth,parseInt(bnop),brd)
     myLibrary.push(b);
@@ -119,9 +132,22 @@ btn.addEventListener('click',(e)=>{
     btnrd.classList.add(`${myLibrary.length-1}`);
 
 
+    
+
+    if(brd===true){
+        btnrd.classList.toggle('read');
+        
+    }
+
+    else{
+        btnrd.classList.add('unread');
+    }
+
 
     btnrd.addEventListener('click',(e)=>{
         e.target.classList.toggle('read');
+        e.target.classList.toggle('unread');
+
     })
 
 
