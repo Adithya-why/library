@@ -87,6 +87,7 @@ for(let i=0;i<myLibrary.length;i++){
 
 const btn = document.querySelector('button#su');
 btn.addEventListener('click',(e)=>{
+
     const bname = document.querySelector("#bname").value;
     const bauth = document.querySelector("#bauth").value;
     const bnop = document.querySelector("#bnop").value;
@@ -174,7 +175,26 @@ btnr.forEach((btn)=>{
         clr.remove();
     })
 });
+const bauth = document.querySelector("#bauth");
+const bnop = document.querySelector("#bnop");
+const brd = document.querySelector("#brd");
 
+
+const bname = document.querySelector("#bname");
+bname.addEventListener('input',function(){
+    if(!bname.validity.valueMissing){
+    bname.setCustomValidity("NAme required");
+    }
+
+    else{
+        bname.setCustomValidity("");
+    }
+});
+
+
+bnop.addEventListener('input',function(){
+    bnop.setCustomValidity("Num required");
+});
 
 
 
